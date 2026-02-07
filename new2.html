@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rooh's Kitchen</title>
+
+<!-- PREMIUM GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --cream:#f6efe4;
+  --rose:#b36f67;
+  --dark:#2f2f2f;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Cormorant Garamond', serif;
+  background:var(--cream);
+  color:var(--dark);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 60px;
+  background:var(--cream);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  font-family:'Playfair Display', serif;
+  font-size:26px;
+  letter-spacing:2px;
+}
+
+.menu-btn{
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  background:var(--cream);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  transform:translateY(-100%);
+  transition:.5s;
+  z-index:200;
+}
+
+.mobile-menu a{
+  font-size:36px;
+  margin:15px 0;
+  text-decoration:none;
+  color:var(--dark);
+}
+
+.mobile-menu.active{
+  transform:translateY(0);
+}
+
+/* HERO */
+.hero img{
+  width:100%;
+  height:90vh;
+  object-fit:cover;
+}
+
+/* TEXT */
+.section{
+  max-width:900px;
+  margin:90px auto;
+  text-align:center;
+  padding:0 20px;
+}
+
+.section h1{
+  font-family:'Playfair Display', serif;
+  font-size:52px;
+  margin-bottom:20px;
+}
+
+.section p{
+  font-size:22px;
+  font-style:italic;
+}
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  margin-top:35px;
+  padding:14px 42px;
+  border:1px solid var(--rose);
+  color:var(--rose);
+  text-decoration:none;
+  border-radius:40px;
+  letter-spacing:1px;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:var(--rose);
+  color:#fff;
+}
+
+/* GRID */
+.grid{
+  max-width:1200px;
+  margin:80px auto;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:40px;
+  padding:0 40px;
+}
+
+.grid img{
+  width:100%;
+  height:400px;
+  object-fit:cover;
+  border:2px solid var(--rose);
+}
+
+/* COLOR BLOCK */
+.color{
+  background:var(--rose);
+  color:#fff;
+  padding:120px 20px;
+  text-align:center;
+}
+
+.color h2{
+  font-family:'Playfair Display', serif;
+  font-size:56px;
+  margin-bottom:25px;
+}
+
+.color p{
+  font-size:22px;
+  max-width:900px;
+  margin:auto;
+}
+
+/* EVENTS */
+.events{
+  max-width:1200px;
+  margin:80px auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+  padding:0 40px;
+}
+
+.events img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border:2px solid #fff;
+}
+
+/* FOOTER */
+footer{
+  padding:100px 40px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:40px;
+}
+
+footer h3{
+  font-family:'Playfair Display', serif;
+  font-size:34px;
+  margin-bottom:20px;
+}
+
+input{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-bottom:1px solid var(--rose);
+  background:transparent;
+  margin-top:20px;
+  font-size:16px;
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  background:#25D366;
+  color:#fff;
+  padding:16px 22px;
+  border-radius:50px;
+  font-size:18px;
+  text-decoration:none;
+  z-index:300;
+}
+
+/* ANIMATIONS */
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .grid,.events,footer{
+    grid-template-columns:1fr;
+  }
+  nav{padding:0 25px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="menu">
+  <a href="#">Home</a>
+  <a href="#">Dining</a>
+  <a href="#">Events</a>
+  <a href="#">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">ROOH</div>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1612208176815-e132bcf971b0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+</section>
+
+<!-- INTRO -->
+<section class="section fade">
+  <h1>Situated in the heart of the city, Rooh’s Kitchen is a soulful culinary escape.</h1>
+  <p>
+    Indulge in warm hospitality, refined flavors,
+    and moments crafted to be remembered.
+  </p>
+  <a class="btn" href="#">RESTAURANT RESERVATIONS</a>
+</section>
+
+<!-- GRID -->
+<section class="grid fade">
+  <img src="https://images.unsplash.com/photo-1750767396956-da1796f33ad1?q=80&w=996&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+  <img src="https://images.unsplash.com/photo-1694849789325-914b71ab4075?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+  <img src="https://images.unsplash.com/photo-1630409346824-4f0e7b080087?q=80&w=946&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+  <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+</section>
+
+<!-- EVENTS -->
+<section class="color fade">
+  <h2>Exclusive Events</h2>
+  <p>
+    Let conversations, celebrations and curated experiences
+    unfold in the inviting embrace of Rooh’s Kitchen.
+  </p>
+  <a class="btn" href="#">EVENT RESERVATIONS</a>
+</section>
+
+<section class="events fade">
+  <img src="https://images.unsplash.com/photo-1644150667853-d2ddead92129?q=80&w=1248&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+  <img src="https://images.unsplash.com/photo-1685478566051-8e5c5af68a58?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+  <img src="https://images.unsplash.com/photo-1626186241349-5d5f44407f55?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+</section>
+
+<!-- DINING -->
+<section class="section fade">
+  <h1>Alluring Dining Spaces</h1>
+  <p>
+    Thoughtfully designed interiors that elevate every meal
+    into an experience of comfort and elegance.
+  </p>
+  <a class="btn" href="#">PRIVATE EVENTS</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="fade">
+  <div>
+    <h3>ROOH<br>Newsletter</h3>
+    <p>Be first to know about special menus & events.</p>
+    <input placeholder="Email Address">
+    <a class="btn" href="#">JOIN OUR COMMUNITY</a>
+  </div>
+
+  <div>
+    <h3>Rooh’s Kitchen</h3>
+    <p>Modern Indian Cuisine</p>
+    <p>Private Dining & Events</p>
+  </div>
+
+  <div>
+    <h3>Contact</h3>
+    <p>📍 India</p>
+    <p>📞 +91 XXXXX XXXXX</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp</a>
+
+<script>
+function toggleMenu(){
+  document.getElementById('menu').classList.toggle('active');
+}
+
+/* SCROLL ANIMATION */
+const faders=document.querySelectorAll('.fade');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)e.target.classList.add('show');
+  });
+},{threshold:.2});
+
+faders.forEach(f=>obs.observe(f));
+</script>
+
+</body>
+</html>
